@@ -68,9 +68,10 @@ namespace DBsecAsgmt1
                 using (SqlCommand myCom = new SqlCommand("dbo.InsCustomer", myCon))
                 {
                     myCom.CommandType = CommandType.StoredProcedure;
-                    myCom.Parameters.Add("@CustomerName", SqlDbType.VarChar).Value = txtCustName.Text;
-                    myCom.Parameters.Add("@CustomerAddress", SqlDbType.VarChar).Value = txtCustAddress.Text;
-                    myCom.Parameters.Add("@CustomerContactNo", SqlDbType.VarChar).Value = txtCustContactNo.Text;
+                    myCom.Parameters.Add("@CustName", SqlDbType.VarChar).Value = txtCustName.Text;
+                    myCom.Parameters.Add("@CustEmail", SqlDbType.VarChar).Value = txtCustEmail.Text;
+                    myCom.Parameters.Add("@CustContactNo", SqlDbType.VarChar).Value = txtCustContactNo.Text;
+                    myCom.Parameters.Add("@CustAddress", SqlDbType.VarChar).Value = txtCustAddress.Text;
 
                     myCom.ExecuteNonQuery();
                 }
@@ -94,8 +95,9 @@ namespace DBsecAsgmt1
 
 
                 txtCustName.Text = "";
-                txtCustAddress.Text = "";
+                txtCustEmail.Text = "";
                 txtCustContactNo.Text = "";
+                txtCustAddress.Text = "";
 
                 lblCustomerNew.Visible = false;
                 lblCustomerUpd.Visible = true;
@@ -119,7 +121,7 @@ namespace DBsecAsgmt1
                 using (SqlCommand cmd = new SqlCommand("dbo.DelCustomer", myCon))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Cust_ID;
+                    cmd.Parameters.Add("@CustID", SqlDbType.Int).Value = Cust_ID;
                     cmd.ExecuteScalar();
                 }
             }
@@ -137,7 +139,7 @@ namespace DBsecAsgmt1
                 {
                     myCmd.Connection = myCon;
                     myCmd.CommandType = CommandType.StoredProcedure;
-                    myCmd.Parameters.Add("@ID", SqlDbType.Int).Value = Cust_ID;
+                    myCmd.Parameters.Add("@CustID", SqlDbType.Int).Value = Cust_ID;
                     SqlDataReader myDr = myCmd.ExecuteReader();
 
                     if (myDr.HasRows)
@@ -145,14 +147,15 @@ namespace DBsecAsgmt1
                         while (myDr.Read())
                         {
                             txtCustName.Text = myDr.GetValue(1).ToString();
-                            txtCustAddress.Text = myDr.GetValue(2).ToString();
+                            txtCustEmail.Text = myDr.GetValue(2).ToString();
                             txtCustContactNo.Text = myDr.GetValue(3).ToString();
+                            txtCustAddress.Text = myDr.GetValue(4).ToString();
                             lblCustID.Text = Cust_ID.ToString();
                         }
                     }
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Customers GetCompany: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Customers GetCustomer: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -166,16 +169,27 @@ namespace DBsecAsgmt1
                     cmd.Connection = myCon;
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(lblCustID.Text);
-                    cmd.Parameters.Add("@CompanyName", SqlDbType.VarChar).Value = txtCustName.Text;
-                    cmd.Parameters.Add("@CompAddress", SqlDbType.VarChar).Value = txtCustAddress.Text;
-                    cmd.Parameters.Add("@CompContactNo", SqlDbType.VarChar).Value = txtCustContactNo.Text;
+                    // Ensure lblCustID.Text is a valid integer
+                    if (int.TryParse(lblCustID.Text, out int CustID))
+                    {
+                        cmd.Parameters.Add("@CustID", SqlDbType.Int).Value = CustID;
+                        cmd.Parameters.Add("@CustName", SqlDbType.VarChar).Value = txtCustName.Text;
+                        cmd.Parameters.Add("@CustEmail", SqlDbType.VarChar).Value = txtCustEmail.Text;
+                        cmd.Parameters.Add("@CustContactNo", SqlDbType.VarChar).Value = txtCustContactNo.Text;
+                        cmd.Parameters.Add("@CustAddress", SqlDbType.VarChar).Value = txtCustAddress.Text;
 
-
-                    int rows = cmd.ExecuteNonQuery();
+                        int rows = cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        lblMessage.Text = "Invalid Customer ID format";
+                    }
                 }
+            }   
+            catch (Exception ex) 
+            { 
+                lblMessage.Text = "Error in Customers UpdCustomer: " + ex.Message;
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Customers UpdCustomer: " + ex.Message; }
             finally { myCon.Close(); }
         }
     }
