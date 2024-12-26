@@ -55,7 +55,7 @@ namespace DBsecAsgmt1
                 btnAddCustomer.Visible = true;
                 btnUpdCustomer.Visible = false;
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openCoDetail();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openCustDetail();", true);
             }
             catch (Exception) { throw; }
         }
@@ -106,7 +106,7 @@ namespace DBsecAsgmt1
 
                 GetCustomer(Cust_ID);
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openCoDetail();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openCustDetail();", true);
             }
         }
 

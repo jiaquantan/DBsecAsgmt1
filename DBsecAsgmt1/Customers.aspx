@@ -4,20 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Customers Homepage</title>
+    <title>Customers</title>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 
     <script type="text/javascript">
-        function openCoDetail() {
+        function openCustDetail() {
             //alert("Opening modal!");
-            $('#modCoDetail').modal('show');
+            $('#modCustDetail').modal('show');
         }
     </script>
-
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div class="container">
@@ -113,6 +113,7 @@
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" Width="80px" />
                             </asp:TemplateField>
+
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -120,7 +121,7 @@
         </div>
 
         <!-- Modal to Add New or View / Update a Customer Details-->
-        <div class="modal fade" id="modCoDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modCustDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" style="width: 600px;">
                 <div class="modal-content" style="font-size: 11px;">
 
