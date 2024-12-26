@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -105,10 +102,11 @@ namespace DBsecAsgmt1
                 txtJobTitle.Text = "";
                 txtSalary.Text = "";
 
-                lblEmployeeNew.Visible = true;
-                lblEmployeeUpd.Visible = false;
-                btnAddEmployee.Visible = true;
-                btnUpdEmployee.Visible = false;
+                // Set modal to "Update Employee" mode
+                lblEmployeeNew.Visible = false; // Hide "Add New Employee" label
+                lblEmployeeUpd.Visible = true;  // Show "Update Employee" label
+                btnAddEmployee.Visible = false; // Hide "Add" button
+                btnUpdEmployee.Visible = true;  // Show "Update" button
 
                 GetEmployee(Emp_ID);
 
@@ -162,7 +160,7 @@ namespace DBsecAsgmt1
                     }
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Employeess GetEmployee: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Employees GetEmployee: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -176,7 +174,7 @@ namespace DBsecAsgmt1
                     cmd.Connection = myCon;
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Ensure lblCustID.Text is a valid integer
+                    // Ensure lblEmpID.Text is a valid integer
                     if (int.TryParse(lblEmpID.Text, out int EmpID))
                     {
                         cmd.Parameters.Add("@EmpID", SqlDbType.Int).Value = EmpID;
@@ -200,6 +198,5 @@ namespace DBsecAsgmt1
             }
             finally { myCon.Close(); }
         }
-
     }
 }

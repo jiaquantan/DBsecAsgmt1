@@ -68,10 +68,10 @@ namespace DBsecAsgmt1
                 using (SqlCommand myCom = new SqlCommand("dbo.InsCustomer", myCon))
                 {
                     myCom.CommandType = CommandType.StoredProcedure;
-                    myCom.Parameters.Add("@CustName", SqlDbType.VarChar).Value = txtCustName.Text;
-                    myCom.Parameters.Add("@CustEmail", SqlDbType.VarChar).Value = txtCustEmail.Text;
-                    myCom.Parameters.Add("@CustContactNo", SqlDbType.VarChar).Value = txtCustContactNo.Text;
-                    myCom.Parameters.Add("@CustAddress", SqlDbType.VarChar).Value = txtCustAddress.Text;
+                    myCom.Parameters.Add("@CustName", SqlDbType.NVarChar).Value = txtCustName.Text;
+                    myCom.Parameters.Add("@CustEmail", SqlDbType.NVarChar).Value = txtCustEmail.Text;
+                    myCom.Parameters.Add("@CustContactNo", SqlDbType.NVarChar).Value = txtCustContactNo.Text;
+                    myCom.Parameters.Add("@CustAddress", SqlDbType.NVarChar).Value = txtCustAddress.Text;
 
                     myCom.ExecuteNonQuery();
                 }
@@ -173,10 +173,10 @@ namespace DBsecAsgmt1
                     if (int.TryParse(lblCustID.Text, out int CustID))
                     {
                         cmd.Parameters.Add("@CustID", SqlDbType.Int).Value = CustID;
-                        cmd.Parameters.Add("@CustName", SqlDbType.VarChar).Value = txtCustName.Text;
-                        cmd.Parameters.Add("@CustEmail", SqlDbType.VarChar).Value = txtCustEmail.Text;
-                        cmd.Parameters.Add("@CustContactNo", SqlDbType.VarChar).Value = txtCustContactNo.Text;
-                        cmd.Parameters.Add("@CustAddress", SqlDbType.VarChar).Value = txtCustAddress.Text;
+                        cmd.Parameters.Add("@CustName", SqlDbType.NVarChar).Value = txtCustName.Text;
+                        cmd.Parameters.Add("@CustEmail", SqlDbType.NVarChar).Value = txtCustEmail.Text;
+                        cmd.Parameters.Add("@CustContactNo", SqlDbType.NVarChar).Value = txtCustContactNo.Text;
+                        cmd.Parameters.Add("@CustAddress", SqlDbType.NVarChar).Value = txtCustAddress.Text;
 
                         int rows = cmd.ExecuteNonQuery();
                     }

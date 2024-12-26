@@ -25,7 +25,7 @@
             <%-- Webpage Heading --%>
             <div class="row">
                 <div class="col-xs-12">
-                    <h1>Customers Homepage</h1>
+                    <h1>Customers</h1>
                 </div>
             </div>
 
