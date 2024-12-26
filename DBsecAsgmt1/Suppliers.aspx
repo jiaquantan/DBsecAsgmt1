@@ -9,6 +9,31 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <style>
+        .col-xs-12 h1 {
+            font-weight: bold
+        }
+        body {
+            /*background-color: whitesmoke;*/
+        }
+        .navbar {
+            background-color: antiquewhite;
+        }
+        .navbar-nav > li {
+            margin-right: 15px; /* Increase the gap between navbar buttons */
+        }
+        .navbar-nav > li > a {
+            color: black !important;
+            transition: all 0.3s ease;
+            font-size: 2rem;
+        }
+        .navbar-nav > li > a:hover {
+            background-color: #0951a3 !important;
+            color: white !important;
+            transform: scale(1.15);
+            border-radius: 15px;
+        }
+    </style>
     <script type="text/javascript">
         function openSupDetail() {
             $('#modSupDetail').modal('show');
@@ -28,7 +53,6 @@
             </div>
 
             <div class="navbar-collapse collapse">
-                <div class="col-sm-4">
                     <ul class="nav navbar-nav" style="font-weight: bold;">
                         <li>
                             <asp:HyperLink ID="hlHome" NavigateUrl="~/Default.aspx" runat="server">Home</asp:HyperLink><br />
@@ -43,7 +67,6 @@
                             <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink><br />
                         </li>
                     </ul>
-                </div>
                 <div class="col-sm-4">
                     <asp:Label ID="lblMessage" runat="server" Text="" />
                 </div>
