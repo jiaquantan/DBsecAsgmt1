@@ -21,6 +21,7 @@
         }
         .navbar-nav > li {
             margin-right: 15px; /* Increase the gap between navbar buttons */
+            margin-top: 20px;
         }
         .navbar-nav > li > a {
             color: black !important;
@@ -46,36 +47,36 @@
     <form id="form1" runat="server">
         <div class="container">
 
-            <%-- Webpage Heading --%>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1>Customers</h1>
+            <%-- Nav Bar --%>
+            <div class="navbar navbar-default">
+                <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav" style="font-weight: bold;">
+                            <li>
+                                <asp:HyperLink ID="hlHome" NavigateUrl="~/Default.aspx" runat="server">Home</asp:HyperLink><br />
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hlSuppliers" NavigateUrl="~/Suppliers.aspx" runat="server">Suppliers</asp:HyperLink><br />
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hlEmployees" NavigateUrl="~/Employees.aspx" runat="server">Employees</asp:HyperLink><br />
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink><br />
+                            </li>
+                        </ul>
+                    <div class="col-sm-4">
+                        <asp:Label ID="lblMessage" runat="server" Text="" />
+                    </div>
+                    <div class="col-sm-14" style="text-align: right; margin-top: 30px;">
+                        <asp:LinkButton ID="lbNewCust" runat="server" Font-Size="16px" OnClick="lbNewCust_Click" CssClass="btn btn-primary">Create New Customer</asp:LinkButton>
+                    </div>
                 </div>
             </div>
 
-            <%-- Menu / Message / New link --%>
-            <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav" style="font-weight: bold;">
-                        <li>
-                            <asp:HyperLink ID="hlHome" NavigateUrl="~/Default.aspx" runat="server">Home</asp:HyperLink><br />
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="hlSuppliers" NavigateUrl="~/Suppliers.aspx" runat="server">Suppliers</asp:HyperLink><br />
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="hlEmployees" NavigateUrl="~/Employees.aspx" runat="server">Employees</asp:HyperLink><br />
-                        </li>
-                        <li>
-                            <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink><br />
-                        </li>
-                    </ul>
-                <div class="col-sm-4">
-                    <asp:Label ID="lblMessage" runat="server" Text="" />
-                </div>
-                <div class="col-sm-4" style="text-align: right;">
-                    <asp:Label ID="Label5" runat="server" Text="[" Font-Size="12px" Visible="true"></asp:Label>
-                    <asp:LinkButton ID="lbNewCust" runat="server" Font-Size="12px" OnClick="lbNewCust_Click">New</asp:LinkButton>
-                    <asp:Label ID="Label6" runat="server" Text="]" Font-Size="12px" Visible="true"></asp:Label>
+            <%-- Customers Heading 1 --%>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Customers</h1>
                 </div>
             </div>
 
@@ -120,7 +121,7 @@
                             <%-- Delete Customer --%>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbDelCustomer" Text="Del" runat="server"
+                                    <asp:LinkButton ID="lbDelCustomer" Text="Delete" runat="server" CssClass="btn btn-primary"
                                         OnClientClick="return confirm('Are you sure you want to delete this customer?');" CommandName="Delete" />
                                 </ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Left" />
@@ -130,8 +131,8 @@
                             <%-- Update Customer --%>
                             <asp:TemplateField HeaderText="">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbUpdCustomer" runat="server" CommandArgument='<%# Eval("CustID") %>'
-                                        CommandName="UpdCustomer" Text="Upd" CausesValidation="false"></asp:LinkButton>
+                                    <asp:LinkButton ID="lbUpdCustomer" runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("CustID") %>'
+                                        CommandName="UpdCustomer" Text="Update" CausesValidation="false"></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" Width="80px" />
                             </asp:TemplateField>
