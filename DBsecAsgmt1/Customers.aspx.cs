@@ -37,7 +37,7 @@ namespace DBsecAsgmt1
                     myDr.Close();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Customers doGridView: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in loading Customers Table: " + ex.Message; }
             finally { myCon.Close(); }
         }
 

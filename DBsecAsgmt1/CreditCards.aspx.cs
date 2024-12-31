@@ -40,7 +40,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Error loading credit cards: " + ex.Message;
+                lblMessage.Text = "Error in loading Credit Cards Table: " + ex.Message;
             }
             finally
             {

@@ -37,7 +37,7 @@ namespace DBsecAsgmt1
                     myDr.Close();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Suppliers DoGridView: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in loading Suppliers Table: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
