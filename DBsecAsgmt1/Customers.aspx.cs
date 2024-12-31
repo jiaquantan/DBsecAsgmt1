@@ -47,8 +47,8 @@ namespace DBsecAsgmt1
             {
                 txtCustName.Text = "";
                 txtCustEmail.Text = "";
-                txtCustAddress.Text = "";
                 txtCustContactNo.Text = "";
+                txtCustAddress.Text = "";
 
                 lblCustomerNew.Visible = true;
                 lblCustomerUpd.Visible = false;
@@ -86,6 +86,41 @@ namespace DBsecAsgmt1
             UpdCustomer();
             DoGridView();
         }
+
+        private void UpdCustomer()
+        {
+            try
+            {
+                myCon.Open();
+                using (SqlCommand cmd = new SqlCommand("dbo.UpdCustomer", myCon))
+                {
+                    cmd.Connection = myCon;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Ensure lblCustID.Text is a valid integer
+                    if (int.TryParse(lblCustID.Text, out int CustID))
+                    {
+                        cmd.Parameters.Add("@CustID", SqlDbType.Int).Value = CustID;
+                        cmd.Parameters.Add("@CustName", SqlDbType.NVarChar).Value = txtCustName.Text;
+                        cmd.Parameters.Add("@CustEmail", SqlDbType.NVarChar).Value = txtCustEmail.Text;
+                        cmd.Parameters.Add("@CustContactNo", SqlDbType.NVarChar).Value = txtCustContactNo.Text;
+                        cmd.Parameters.Add("@CustAddress", SqlDbType.NVarChar).Value = txtCustAddress.Text;
+
+                        int rows = cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        lblMessage.Text = "Invalid Customer ID format";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = "Error in Customers UpdCustomer: " + ex.Message;
+            }
+            finally { myCon.Close(); }
+        }
+
 
         protected void gvCustomers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -156,40 +191,6 @@ namespace DBsecAsgmt1
                 }
             }
             catch (Exception ex) { lblMessage.Text = "Error in Customers GetCustomer: " + ex.Message; }
-            finally { myCon.Close(); }
-        }
-
-        private void UpdCustomer()
-        {
-            try
-            {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand("dbo.UpdCustomer", myCon))
-                {
-                    cmd.Connection = myCon;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Ensure lblCustID.Text is a valid integer
-                    if (int.TryParse(lblCustID.Text, out int CustID))
-                    {
-                        cmd.Parameters.Add("@CustID", SqlDbType.Int).Value = CustID;
-                        cmd.Parameters.Add("@CustName", SqlDbType.NVarChar).Value = txtCustName.Text;
-                        cmd.Parameters.Add("@CustEmail", SqlDbType.NVarChar).Value = txtCustEmail.Text;
-                        cmd.Parameters.Add("@CustContactNo", SqlDbType.NVarChar).Value = txtCustContactNo.Text;
-                        cmd.Parameters.Add("@CustAddress", SqlDbType.NVarChar).Value = txtCustAddress.Text;
-
-                        int rows = cmd.ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        lblMessage.Text = "Invalid Customer ID format";
-                    }
-                }
-            }   
-            catch (Exception ex) 
-            { 
-                lblMessage.Text = "Error in Customers UpdCustomer: " + ex.Message;
-            }
             finally { myCon.Close(); }
         }
     }

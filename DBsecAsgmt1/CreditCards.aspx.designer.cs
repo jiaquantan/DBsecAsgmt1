@@ -11,7 +11,7 @@ namespace DBsecAsgmt1
 {
 
 
-    public partial class Suppliers
+    public partial class CreditCards
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace DBsecAsgmt1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
         /// hlHome control.
@@ -87,103 +78,121 @@ namespace DBsecAsgmt1
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// lbNewSup control.
+        /// lbNewCard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbNewSup;
+        protected global::System.Web.UI.WebControls.LinkButton lbNewCard;
 
         /// <summary>
-        /// gvSuppliers control.
+        /// gvCreditCards control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSuppliers;
+        protected global::System.Web.UI.WebControls.GridView gvCreditCards;
 
         /// <summary>
-        /// lblSupplierNew control.
+        /// lblCardNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSupplierNew;
+        protected global::System.Web.UI.WebControls.Label lblCardNew;
 
         /// <summary>
-        /// lblSupplierUpd control.
+        /// lblCardUpd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSupplierUpd;
+        protected global::System.Web.UI.WebControls.Label lblCardUpd;
 
         /// <summary>
-        /// txtSupplierName control.
+        /// txtCardType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierName;
+        protected global::System.Web.UI.WebControls.TextBox txtCardType;
 
         /// <summary>
-        /// txtSupplierContactNo control.
+        /// lblCreditCardID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierContactNo;
+        protected global::System.Web.UI.WebControls.Label lblCreditCardID;
 
         /// <summary>
-        /// txtSupplierAddress control.
+        /// txtCardNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtCardNumber;
 
         /// <summary>
-        /// txtSupplierEmail control.
+        /// txtExpMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtExpMonth;
 
         /// <summary>
-        /// lblSupplierID control.
+        /// txtExpYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSupplierID;
+        protected global::System.Web.UI.WebControls.TextBox txtExpYear;
 
         /// <summary>
-        /// btnAddSupplier control.
+        /// txtCustID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddSupplier;
+        protected global::System.Web.UI.WebControls.TextBox txtCustID;
 
         /// <summary>
-        /// btnUpdSupplier control.
+        /// lblModalMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdSupplier;
+        protected global::System.Web.UI.WebControls.Label lblModalMessage;
+
+        /// <summary>
+        /// btnAddCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddCard;
+
+        /// <summary>
+        /// btnUpdCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdCard;
 
         /// <summary>
         /// btnClose control.

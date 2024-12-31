@@ -63,6 +63,9 @@
                             <li>
                                 <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink><br />
                             </li>
+                            <li>
+                                <asp:HyperLink ID="hlCreditCards" NavigateUrl="~/CreditCards.aspx" runat="server">Credit Cards</asp:HyperLink><br />
+                            </li>
                         </ul>
                     <div class="col-sm-4">
                         <asp:Label ID="lblMessage" runat="server" Text="" />
@@ -118,25 +121,18 @@
                                 <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
 
-                            <%-- Delete Customer --%>
-                            <asp:TemplateField>
+                            <%-- Operations Column --%>
+                            <asp:TemplateField HeaderText="Operations">
+                                <HeaderStyle CssClass="text-center" />
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbDelCustomer" Text="Delete" runat="server" CssClass="btn btn-primary"
-                                        OnClientClick="return confirm('Are you sure you want to delete this customer?');" CommandName="Delete" />
-                                </ItemTemplate>
-                                <HeaderStyle HorizontalAlign="Left" />
-                                <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                    <%-- Update Customer --%>
+                                    <asp:LinkButton ID="lbUpdCustomer" runat="server" CssClass="btn btn-primary btn-sm btn-success" CommandArgument='<%# Eval("CustID") %>'
+                                        CommandName="UpdCustomer" Text="Update" CausesValidation="false" style="font-weight: bold;"></asp:LinkButton>
+                                    <%-- Delete Customer --%>
+                                    <asp:LinkButton ID="lbDelCustomer" Text="Delete" runat="server" CssClass="btn btn-primary btn-danger btn-sm text-white"
+                                        OnClientClick="return confirm('Are you sure you want to delete this customer?');" CommandName="Delete" style="margin-left: 6px; font-weight: bold;"/>                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Width="150px" />
                             </asp:TemplateField>
-
-                            <%-- Update Customer --%>
-                            <asp:TemplateField HeaderText="">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lbUpdCustomer" runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("CustID") %>'
-                                        CommandName="UpdCustomer" Text="Update" CausesValidation="false"></asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Width="80px" />
-                            </asp:TemplateField>
-
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -164,41 +160,37 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtCustName" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Customer Name"
-                                                AutoCompleteType="Disabled" placeholder="Customer Name" />
+                                                AutoCompleteType="Disabled" placeholder="Customer Name (e.g. John Doe)" />
                                             <asp:Label runat="server" ID="lblCustID" Visible="false" Font-Size="12px" />
                                         </div>
-                                        <div class="col-sm-1">
-                                        </div>
+                                        <div class="col-sm-1"></div>
                                     </div>
                                     <div class="row" style="margin-top: 20px;">
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtCustEmail" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Customer Email"
-                                                AutoCompleteType="Disabled" placeholder="Customer Email" />
+                                                AutoCompleteType="Disabled" placeholder="Customer Email (e.g. johndoe@gmail.com)" />
                                         </div>
-                                        <div class="col-sm-1">
-                                        </div>
+                                        <div class="col-sm-1"></div>
                                     </div>
                                     <div class="row" style="margin-top: 20px;">
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtCustContactNo" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Customer Contact Number"
-                                                AutoCompleteType="Disabled" placeholder="Customer Contact Number" />
+                                                AutoCompleteType="Disabled" placeholder="Customer Contact Number (e.g. 0123456789)" />
                                         </div>
-                                        <div class="col-sm-1">
-                                        </div>
+                                        <div class="col-sm-1"></div>
                                     </div>
                                     <div class="row" style="margin-top: 20px;">
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtCustAddress" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Customer Address"
-                                                AutoCompleteType="Disabled" placeholder="Customer Address" />
+                                                AutoCompleteType="Disabled" placeholder="Customer Address (e.g. Jalan Ampang, KL)" />
                                         </div>
-                                        <div class="col-sm-1">
-                                        </div>
+                                        <div class="col-sm-1"></div>
                                     </div>
                                 </div>
                             </div>

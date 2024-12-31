@@ -62,6 +62,9 @@
                         <li>
                             <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink><br />
                         </li>
+                        <li>
+                            <asp:HyperLink ID="hlCreditCards" NavigateUrl="~/CreditCards.aspx" runat="server">Credit Cards</asp:HyperLink><br />
+                        </li>
                     </ul>
                 <div class="col-sm-4">
                     <asp:Label ID="lblMessage" runat="server" Text="" />
@@ -118,23 +121,18 @@
                                 <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
 
-                            <%-- Delete Supplier --%>
-                            <asp:TemplateField>
+                            <%-- Operations Column --%>
+                            <asp:TemplateField HeaderText="Operations">
+                                <HeaderStyle CssClass="text-center" />
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbDelSupplier" Text="Delete" runat="server" CssClass="btn btn-primary"
-                                        OnClientClick="return confirm('Are you sure you want to delete this supplier?');" CommandName="Delete" />
-                                </ItemTemplate>
+                                    <%-- Update Supplier --%>
+                                    <asp:LinkButton ID="lbUpdSupplier" runat="server" CssClass="btn btn-primary btn-sm btn-success" CommandArgument='<%# Eval("SupplierID") %>'
+                                        CommandName="UpdSupplier" Text="Update" CausesValidation="false" style="font-weight: bold;"></asp:LinkButton>
+                                    <%-- Delete Supplier --%>
+                                    <asp:LinkButton ID="lbDelSupplier" Text="Delete" runat="server" CssClass="btn btn-primary btn-danger btn-sm text-white"
+                                        OnClientClick="return confirm('Are you sure you want to delete this supplier?');" CommandName="Delete" style="margin-left: 6px; font-weight: bold;"/>                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Width="150px" />
                             </asp:TemplateField>
-
-
-                            <%-- Update Supplier --%>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lbUpdSupplier" runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("SupplierID") %>'
-                                        CommandName="UpdSupplier" Text="Update" CausesValidation="false"></asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -162,7 +160,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtSupplierName" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Supplier Name"
-                                                AutoCompleteType="Disabled" placeholder="Supplier Name" />
+                                                AutoCompleteType="Disabled" placeholder="Supplier Name (e.g. Abc Sdn Bhd)" />
                                         </div>
                                         <div class="col-sm-1"></div>
                                     </div>
@@ -171,7 +169,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtSupplierContactNo" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Supplier Contact Number"
-                                                AutoCompleteType="Disabled" placeholder="Supplier Contact Number" />
+                                                AutoCompleteType="Disabled" placeholder="Supplier Contact Number (e.g. 03-8888 9999)" />
                                         </div>
                                         <div class="col-sm-1"></div>
                                     </div>
@@ -180,7 +178,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtSupplierAddress" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Supplier Address"
-                                                AutoCompleteType="Disabled" placeholder="Supplier Address" />
+                                                AutoCompleteType="Disabled" placeholder="Supplier Address (e.g. Jalan Ampang, KL)" />
                                         </div>
                                         <div class="col-sm-1"></div>
                                     </div>
@@ -189,7 +187,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtSupplierEmail" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Supplier Email"
-                                                AutoCompleteType="Disabled" placeholder="Supplier Email" />
+                                                AutoCompleteType="Disabled" placeholder="Supplier Email (e.g. abc.gmail.com)" />
                                         </div>
                                         <div class="col-sm-1"></div>
                                     </div>

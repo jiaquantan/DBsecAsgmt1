@@ -60,6 +60,9 @@
                                 <li>
                                     <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink>
                                 </li>
+                                <li>
+                                    <asp:HyperLink ID="hlCreditCards" NavigateUrl="~/CreditCards.aspx" runat="server">Credit Cards</asp:HyperLink>
+                                </li>
                             </ul>
                         </div>
                     </div>

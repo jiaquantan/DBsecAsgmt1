@@ -63,6 +63,9 @@
                             <li>
                                 <asp:HyperLink ID="hlCustomers" NavigateUrl="~/Customers.aspx" runat="server">Customers</asp:HyperLink><br />
                             </li>
+                            <li>
+                                <asp:HyperLink ID="hlCreditCards" NavigateUrl="~/CreditCards.aspx" runat="server">Credit Cards</asp:HyperLink><br />
+                            </li>
                         </ul>
                     <div class="col-sm-4">
                         <asp:Label ID="lblMessage" runat="server" Text="" />
@@ -123,25 +126,18 @@
                                 <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
 
-                            <%-- Delete Employee --%>
-                            <asp:TemplateField>
+                            <%-- Operations Column --%>
+                            <asp:TemplateField HeaderText="Operations">
+                                <HeaderStyle CssClass="text-center" />
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbDelEmployee" Text="Delete" runat="server"  CssClass="btn btn-primary"
-                                        OnClientClick="return confirm('Are you sure you want to delete this employee?');" CommandName="Delete" />
-                                </ItemTemplate>
-                                <HeaderStyle HorizontalAlign="Left" />
-                                <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                    <%-- Update Employee --%>
+                                    <asp:LinkButton ID="lbUpdEmployee" runat="server" CssClass="btn btn-primary btn-sm btn-success" CommandArgument='<%# Eval("EmpID") %>'
+                                        CommandName="UpdEmployee" Text="Update" CausesValidation="false" style="font-weight: bold;"></asp:LinkButton>
+                                    <%-- Delete Employee --%>
+                                    <asp:LinkButton ID="lbDelEmployee" Text="Delete" runat="server" CssClass="btn btn-primary btn-danger btn-sm text-white"
+                                        OnClientClick="return confirm('Are you sure you want to delete this employee?');" CommandName="Delete" style="margin-left: 6px; font-weight: bold;"/>                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Width="150px" />
                             </asp:TemplateField>
-
-                            <%-- Update Employee --%>
-                            <asp:TemplateField HeaderText="">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lbUpdEmployee" runat="server" CssClass="btn btn-primary" CommandArgument='<%# Eval("EmpID") %>'
-                                        CommandName="UpdEmployee" Text="Update" CausesValidation="false"></asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Width="80px" />
-                            </asp:TemplateField>
-
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -169,7 +165,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtEmpName" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Employee Name"
-                                                AutoCompleteType="Disabled" placeholder="Employee Name" />
+                                                AutoCompleteType="Disabled" placeholder="Employee Name (e.g. John Doe)" />
                                             <asp:Label runat="server" ID="lblEmpID" Visible="false" Font-Size="12px" />
                                         </div>
                                         <div class="col-sm-1">
@@ -180,7 +176,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtEmpEmail" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Employee Email"
-                                                AutoCompleteType="Disabled" placeholder="Employee Email" />
+                                                AutoCompleteType="Disabled" placeholder="Employee Email (e.g. john.doe@gmail.com)" />
                                         </div>
                                         <div class="col-sm-1">
                                         </div>
@@ -190,7 +186,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtDepartment" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Employee Department"
-                                                AutoCompleteType="Disabled" placeholder="Employee Department" />
+                                                AutoCompleteType="Disabled" placeholder="Employee Department (e.g. IT)" />
                                         </div>
                                         <div class="col-sm-1">
                                         </div>
@@ -200,7 +196,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtJobTitle" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Employee Job Title"
-                                                AutoCompleteType="Disabled" placeholder="Employee Job Title" />
+                                                AutoCompleteType="Disabled" placeholder="Employee Job Title (e.g. Programmer)" />
                                         </div>
                                         <div class="col-sm-1">
                                         </div>
@@ -210,7 +206,7 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtSalary" runat="server" MaxLength="255" CssClass="form-control input-xs" 
                                                 ToolTip="Employee Salary"
-                                                AutoCompleteType="Disabled" placeholder="Employee Salary" />
+                                                AutoCompleteType="Disabled" placeholder="Employee Salary (e.g. 5000)" />
                                         </div>
                                         <div class="col-sm-1">
                                         </div>
