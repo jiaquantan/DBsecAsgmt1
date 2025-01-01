@@ -131,7 +131,7 @@
                                 <ItemTemplate>
                                     <%-- Update Card --%>
                                     <asp:LinkButton ID="lbUpdCard" runat="server" CssClass="btn btn-primary btn-sm btn-success" CommandArgument='<%# Eval("CardID") %>'
-                                        CommandName="UpdCard" Text="Update" CausesValidation="false" style="font-weight: bold;"></asp:LinkButton>
+                                        CommandName="UpdCreditCard" Text="Update" CausesValidation="false" style="font-weight: bold;"></asp:LinkButton>
                                     <%-- Delete Card --%>
                                     <asp:LinkButton ID="lbDelCard" Text="Delete" runat="server" CssClass="btn btn-primary btn-danger btn-sm text-white"
                                         OnClientClick="return confirm('Are you sure you want to delete this card?');" CommandName="Delete" style="margin-left: 6px; font-weight: bold;"/>                                </ItemTemplate>

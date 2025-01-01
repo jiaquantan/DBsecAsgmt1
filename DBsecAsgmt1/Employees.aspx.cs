@@ -37,7 +37,7 @@ namespace DBsecAsgmt1
                     myDr.Close();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in loading Employees Table: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Retrieving Employees: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -78,7 +78,7 @@ namespace DBsecAsgmt1
                     myCom.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in btnAddEmployee_Click: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Creating Employee: " + ex.Message; }
             finally { myCon.Close(); }
             DoGridView();
         }
@@ -129,7 +129,7 @@ namespace DBsecAsgmt1
                     cmd.ExecuteScalar();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in gvEmployees_RowDeleting: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Deleting Employee: " + ex.Message; }
             finally { myCon.Close(); }
             DoGridView();
         }
@@ -160,7 +160,7 @@ namespace DBsecAsgmt1
                     }
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Employees GetEmployee: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Retrieving Employee: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -194,7 +194,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Error in Employees UpdEmployee: " + ex.Message;
+                lblMessage.Text = "Error in Updating Employee: " + ex.Message;
             }
             finally { myCon.Close(); }
         }

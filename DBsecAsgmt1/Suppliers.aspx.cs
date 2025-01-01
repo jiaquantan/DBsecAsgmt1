@@ -37,7 +37,7 @@ namespace DBsecAsgmt1
                     myDr.Close();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in loading Suppliers Table: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Retrieving Suppliers Table: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -75,7 +75,7 @@ namespace DBsecAsgmt1
                     myCom.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in btnAddSupplier_Click: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Creating Supplier: " + ex.Message; }
             finally { myCon.Close(); }
             DoGridView();
         }
@@ -124,7 +124,7 @@ namespace DBsecAsgmt1
                     cmd.ExecuteScalar();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in gvSuppliers_RowDeleting: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Deleting Supplier: " + ex.Message; }
             finally { myCon.Close(); }
             DoGridView();
         }
@@ -154,7 +154,7 @@ namespace DBsecAsgmt1
                     }
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Suppliers GetSupplier: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Retrieving Supplier: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -185,7 +185,7 @@ namespace DBsecAsgmt1
                     }
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Suppliers UpdSupplier: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Updating Supplier: " + ex.Message; }
             finally { myCon.Close(); }
         }
     }

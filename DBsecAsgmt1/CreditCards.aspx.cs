@@ -97,7 +97,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblModalMessage.Text = "Error adding card: " + ex.Message;
+                lblModalMessage.Text = "Error in Creating Card: " + ex.Message;
             }
             finally
             {
@@ -148,7 +148,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblModalMessage.Text = "Error updating card: " + ex.Message;
+                lblMessage.Text = "Error in Updating Card: " + ex.Message;
             }
             finally
             {
@@ -197,7 +197,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Error deleting card: " + ex.Message;
+                lblMessage.Text = "Error in Deleting Card: " + ex.Message;
             }
             finally
             {
@@ -234,7 +234,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Error retrieving card details: " + ex.Message;
+                lblMessage.Text = "Error in Retrieving Card Details: " + ex.Message;
             }
             finally
             {

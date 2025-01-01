@@ -37,7 +37,7 @@ namespace DBsecAsgmt1
                     myDr.Close();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in loading Customers Table: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Retrieving Customers Table: " + ex.Message; }
             finally { myCon.Close(); }
         }
 
@@ -76,7 +76,7 @@ namespace DBsecAsgmt1
                     myCom.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in btnAddCustomer_Click: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Creating Customer: " + ex.Message; }
             finally { myCon.Close(); }
             DoGridView();
         }
@@ -116,7 +116,7 @@ namespace DBsecAsgmt1
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Error in Customers UpdCustomer: " + ex.Message;
+                lblMessage.Text = "Error in Updating Customer: " + ex.Message;
             }
             finally { myCon.Close(); }
         }
@@ -160,7 +160,7 @@ namespace DBsecAsgmt1
                     cmd.ExecuteScalar();
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in gvCustomers_RowDeleting: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Deleting Customer: " + ex.Message; }
             finally { myCon.Close(); }
             DoGridView();
         }
@@ -190,7 +190,7 @@ namespace DBsecAsgmt1
                     }
                 }
             }
-            catch (Exception ex) { lblMessage.Text = "Error in Customers GetCustomer: " + ex.Message; }
+            catch (Exception ex) { lblMessage.Text = "Error in Retrieving Customer: " + ex.Message; }
             finally { myCon.Close(); }
         }
     }
