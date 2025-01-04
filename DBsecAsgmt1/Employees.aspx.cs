@@ -188,7 +188,7 @@ namespace DBsecAsgmt1
                     }
                     else
                     {
-                        lblMessage.Text = "Invalid Employee ID format";
+                        lblMessage.Text = "Error: You do not have the permission to update employee's information";
                     }
                 }
             }

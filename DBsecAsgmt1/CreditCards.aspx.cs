@@ -128,7 +128,7 @@ namespace DBsecAsgmt1
                     cmd.Connection = myCon;
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Ensure lblCustID.Text is a valid integer
+                    // Ensure lblCreditCardID.Text is a valid integer
                     if (int.TryParse(lblCreditCardID.Text, out int CardID))
                     {
                         cmd.Parameters.Add("@CardID", SqlDbType.Int).Value = CardID;
@@ -142,7 +142,7 @@ namespace DBsecAsgmt1
                     }
                     else
                     {
-                        lblMessage.Text = "Invalid Credit Card ID format";
+                        lblMessage.Text = "Error: You do not have the permission to update credit card's information";
                     }
                 }
             }
