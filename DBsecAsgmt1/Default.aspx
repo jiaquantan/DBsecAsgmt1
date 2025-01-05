@@ -43,7 +43,7 @@
 
             <%-- Webpage Heading and Menu --%>
             <div class="row">
-                <div class="col-xs-12 d-flex align-items-center">
+                <div class="col-xs-12 d-flex flex-column align-items-center text-center">
                     <h1 class="mr-3">Assignment 1 Enterprise Web Application</h1>
                     <div class="navbar navbar-default">
                         <div class="navbar-collapse collapse">
